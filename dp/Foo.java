@@ -14,17 +14,20 @@ public class Foo extends JPanel
 	 */
 	private static final long serialVersionUID = 1L;
 	BufferedImage buffer;
-	int x1, x2, y1, y2;
+	int x1 = 300;
+	int y1 = 320;
+	int x2 = 300;
+	int y2 = 370;
 
 	//Machade³ko
 	@Override
 	    public void paintComponent(Graphics g) 
 	 {
-		 Graphics2D g2d = (Graphics2D) g;       
-	        g2d.setColor(Color.white);
+		 Graphics2D g2d = (Graphics2D) g;   
+	        g2d.setColor(Color.black);
 	        g2d.fillRect(0, 0, 800, 600);
-	        g2d.setPaint(Color.black);
-	        g2d.drawLine(330, 220, x1, y1);
+	        g2d.setPaint(Color.red);
+	        g2d.drawLine(300, 220, x1, y1);
 	        g2d.drawLine(x1, y1, x2, y2);
 	        g2d.setPaint(Color.GREEN);
 	        g2d.fillOval(x1-10, y1-10, 20, 20);

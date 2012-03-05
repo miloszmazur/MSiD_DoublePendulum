@@ -40,16 +40,20 @@ public class Simulation extends Thread{
     {
         
     	while(true){
-            int x1=(int)(l1*Math.sin(z[0])+330);
+            int x1=(int)(l1*Math.sin(z[0])+300);
             int y1=(int)(l1*Math.cos(z[0])+220);
             int x2=(int)(x1+l2*Math.sin(z[1]));
             int y2=(int)(y1+l2*Math.cos(z[1]));
+//            System.out.println(x1);
+//            System.out.println(y1);
+//            System.out.println(x2);
+//            System.out.println(y2);
             panel.setCoord(x1,y1,x2,y2);
             panel.repaint();
 
             try{
             	//zobaczmy, co sie stanie, jak zmienimy na milisekundy BYLO: 1000*H
-                Thread.sleep((int)(h));
+                Thread.sleep((int)(1000*h));
             }catch(InterruptedException e){
                 System.out.println("Unfortunate... well, something. Something unfortunate just happened");
             }
@@ -79,6 +83,7 @@ public class Simulation extends Thread{
             z[1] = z[1] + h/6*(a[1]+2*b[1]+2*c[1]+d[1]);
             z[2] = z[2] + h/6*(a[2]+2*b[2]+2*c[2]+d[2]);
             z[3] = z[3] + h/6*(a[3]+2*b[3]+2*c[3]+d[3]);
+          
        }
     }
 }

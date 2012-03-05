@@ -6,6 +6,7 @@ import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -64,36 +65,39 @@ public class Mainframe extends JFrame{
 	public void init()
 	{
 		gui = new JFrame();
-		gui.setSize(920, 535);
+		gui.setSize(800, 520);
 		gui.setVisible(true);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setLocationRelativeTo(null);
 		gui.setTitle("Double Pendulum");
 		gui.setLayout(null);
+		
 		field = new Foo();
 		field.setBounds(200,10,700,470);
+		field.setBorder(BorderFactory.createRaisedBevelBorder());
+		
 		buttons = new JPanel();
 		buttons.setBounds(10,10,180,470);
 		buttons.setLayout((LayoutManager) new BoxLayout(buttons,BoxLayout.Y_AXIS));
-		JLabel l1c = new JLabel("Length 1 (m)");
-		JLabel l2c = new JLabel("Length 2 (m)");
-		JLabel m1c = new JLabel("Mass 1 (kg)");
-		JLabel m2c = new JLabel("Mass 2 (kg)");
-		JLabel k1c = new JLabel("Angle 1 (deg)");
-		JLabel k2c = new JLabel("Angle 2 (deg)");
+		JLabel l1c = new JLabel("Length 1 [m]");
+		JLabel l2c = new JLabel("Length 2 [m]");
+		JLabel m1c = new JLabel("Mass 1 [kg]");
+		JLabel m2c = new JLabel("Mass 2 [kg]");
+		JLabel k1c = new JLabel("Angle 1 [deg]");
+		JLabel k2c = new JLabel("Angle 2 [deg]");
 		JLabel h = new JLabel("Time step (s) (keep REALLY low)");
 		JLabel g = new JLabel("Gravitational constant (m/s^2)");
 		
 		l1t = new JTextField("100");
 		l2t = new JTextField("100");
-		m1t = new JTextField("1");
+		m1t = new JTextField("10");
 		m2t = new JTextField("10");
-		k1t = new JTextField("45");
+		k1t = new JTextField("90");
 		k2t = new JTextField("45");
-		ht = new JTextField("0.0001");
-		gt = new JTextField("10");
+		ht = new JTextField("0.001");
+		gt = new JTextField("9.8");
 		
-		engage = new JButton("Simulate");
+		engage = new JButton("Engage");
 		
 		buttons.add(l1c);
 		buttons.add(l1t);
@@ -112,10 +116,9 @@ public class Mainframe extends JFrame{
 		buttons.add(g);
 		buttons.add(gt);
 		buttons.add(engage);
-		
+//		engage.setAlignmentX(CENTER_ALIGNMENT);
+//		engage.setAlignmentY(CENTER_ALIGNMENT);
 		engage.addActionListener(new ActionListener() {
-
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
